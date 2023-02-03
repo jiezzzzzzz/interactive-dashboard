@@ -18,7 +18,7 @@ currency = re.findall(r'"id":"(.*?)",', response.text)
 bar = pe.bar()
 
 date_from_widget = html.Div([
-    html.Div('Дата начала периода (DD.MM.YYYY)'),
+    html.Div('Дата начала периода (DD.MM.YYYY)', className="text-primary",),
     dcc.Input(
         id='DateFrom',
         type='text',
@@ -27,7 +27,7 @@ date_from_widget = html.Div([
 ])
 
 date_to_widget = html.Div([
-    html.Div('Дата конца периода (DD.MM.YYYY)'),
+    html.Div('Дата конца периода (DD.MM.YYYY)', className="text-primary",),
     dcc.Input(
         id='DateTo',
         type='text',
@@ -49,7 +49,7 @@ gist = html.Div([
 ])
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
-app.layout = html.Div([
+app.layout = dbc.Container(children=[
     dbc.Row([
         dbc.Col([
             dbc.Row(select_currency, style={'margin-top': '200px', 'margin-left': '60px',}),
